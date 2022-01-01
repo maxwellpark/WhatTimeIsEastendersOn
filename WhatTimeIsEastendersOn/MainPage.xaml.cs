@@ -1,5 +1,6 @@
 ﻿using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
+using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -29,14 +30,16 @@ namespace WhatTimeIsEastendersOn
             base.OnAppearing();
 
             var schedule = await GetScheduleHtml();
-            SetStringValues(schedule);
+            SetProgrammeStrings(schedule);
 
-            StartTimeText.Text = StartTime;
+            StartTimeText.Text = $"Start time: {StartTime}";
             SynopsisText.Text = Synopsis;
             SetIsEnabled(!string.IsNullOrWhiteSpace(StartTime));
+
+            DateText.Text = DateTime.Now.ToString("dd'/'MM'/'yyyy");
         }
 
-        private void SetStringValues(string html)
+        private void SetProgrammeStrings(string html)
         {
             var document = new HtmlDocument();
             document.LoadHtml(html);
@@ -70,7 +73,7 @@ namespace WhatTimeIsEastendersOn
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                return content; 
+                return content;
             }
             return string.Empty;
         }

@@ -7,6 +7,7 @@
         <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
             <Label Text="What Time Is EastEnders On?" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
+        <Label x:Name="DateText" HorizontalTextAlignment="End" TextColor="Black" FontSize="16" Padding="12"/>
         <Label x:Name="StartTimeText" HorizontalTextAlignment="Center" TextColor="Black" FontSize="72" Padding="12"/>
         <Label x:Name="SynopsisText" HorizontalTextAlignment="Center" TextColor="Black" FontSize="24" Padding="12"/>
         <Label x:Name="NotOnText" Text="EastEnders is not on tonight" HorizontalTextAlignment="Center" TextColor="Black" FontSize="24" Padding="12" IsVisible="False"/>
